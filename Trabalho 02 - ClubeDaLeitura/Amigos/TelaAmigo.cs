@@ -1,7 +1,31 @@
-﻿namespace Trabalho_02___ClubeDaLeitura.Amigos
+﻿
+namespace Trabalho_02___ClubeDaLeitura.Amigos
 {
     public class TelaAmigo
     {
+        public char ControleAmigos()
+        {
+
+            Console.Clear();
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("     Controle de Amigos    ");
+            Console.WriteLine("---------------------------");
+
+            Console.WriteLine();
+
+            Console.WriteLine("1 - Inserir novos amigos");
+            Console.WriteLine("2 - Editar amigos ");
+            Console.WriteLine("3 - Excluir Amigos");
+            Console.WriteLine("4 - Visualizar amigos cadastrados");
+            Console.WriteLine("5 - Visualizar emprestimos de amigos");
+            Console.WriteLine("S - Sair");
+
+            Console.WriteLine();
+            Console.Write("Infome uma opção válida:");
+            char opcao = Console.ReadLine()[0];
+            return opcao;
+        }
+
         public Amigo ObterDados()
         {
             Console.WriteLine("Informe o nome do amigo");
@@ -24,10 +48,16 @@
 
         }
 
+        internal void CadastrarAmigos()
+        {
+            Console.Clear();
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("     Cadastrar Amigo       ");
+            Console.WriteLine("---------------------------");
 
+            ObterDados();
 
-
-
-
+            Console.ReadLine();
+        }
     }
 }

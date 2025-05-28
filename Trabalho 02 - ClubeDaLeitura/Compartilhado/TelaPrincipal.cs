@@ -10,8 +10,9 @@ namespace Trabalho_02___ClubeDaLeitura.Compartilhado
     {
         private char opcaoEscolhida;
 
-        public void ApresentarMenuPrincipal()
+        public char ApresentarMenuPrincipal()
         {
+            Console.Clear();
             Console.WriteLine("---------------------------");
             Console.WriteLine("       Clube do Livro      ");
             Console.WriteLine("---------------------------");
@@ -26,10 +27,10 @@ namespace Trabalho_02___ClubeDaLeitura.Compartilhado
 
             Console.WriteLine();
 
-            Console.WriteLine("Escolha uma opção válida");
-            opcaoEscolhida = Console.ReadLine()[0];
+            Console.Write("Escolha uma opção válida: ");
+            opcaoEscolhida = Console.ReadLine().ToUpper()[0];
 
-
+            return opcaoEscolhida;
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using Trabalho_02___ClubeDaLeitura.Compartilhado;
+﻿using Trabalho_02___ClubeDaLeitura.Amigos;
+using Trabalho_02___ClubeDaLeitura.Compartilhado;
 
 namespace Trabalho_02___ClubeDaLeitura
 {
@@ -7,12 +8,30 @@ namespace Trabalho_02___ClubeDaLeitura
         static void Main(string[] args)
         {
             TelaPrincipal telaPrincipal = new TelaPrincipal();
-
+            TelaAmigo telaAmigo = new TelaAmigo();
 
 
             while (true)
             {
-                telaPrincipal.ApresentarMenuPrincipal();
+                char telaEscolhida = telaPrincipal.ApresentarMenuPrincipal();
+
+
+                if (telaEscolhida == 'S') 
+                    break;
+
+                if (telaEscolhida == '1')
+                {
+                    char opcao = telaAmigo.ControleAmigos();
+
+                    switch (opcao)
+                    {
+                        case '1':
+                            telaAmigo.CadastrarAmigos();
+                            break;
+
+                    }
+
+                }
 
 
 

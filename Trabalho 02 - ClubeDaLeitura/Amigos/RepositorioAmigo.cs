@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace Trabalho_02___ClubeDaLeitura.Amigos
 {
-    class RepositorioAmigo
+    public class RepositorioAmigo
     {
+        private Amigo[] amigos = new Amigo[100];
+        public int contadorAmigo = 0;
 
 
-
-
+        public void Cadastrarregistro(Amigo amigo)
+        {
+            amigos[contadorAmigo] = amigo;
+            contadorAmigo++;
+        }
 
 
     }

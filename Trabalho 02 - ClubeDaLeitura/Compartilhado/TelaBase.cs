@@ -2,9 +2,6 @@
 {
      public  abstract class TelaBase
     {
-        
-
-
-
+        protected string nomeEntidade;
     }
 }
