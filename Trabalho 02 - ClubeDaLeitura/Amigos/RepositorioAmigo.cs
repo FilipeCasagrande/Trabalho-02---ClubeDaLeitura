@@ -12,12 +12,15 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
         public int contadorAmigo = 0;
 
 
-        public void Cadastrarregistro(Amigo amigo)
+        public void CadastrarRegistro(Amigo amigo)
         {
             amigos[contadorAmigo] = amigo;
             contadorAmigo++;
         }
 
-
+        public Amigo[] SelecionarRegistros()
+        {
+            return amigos;
+        }
     }
 }

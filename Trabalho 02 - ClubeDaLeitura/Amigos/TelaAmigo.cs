@@ -3,6 +3,9 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 {
     public class TelaAmigo
     {
+        RepositorioAmigo repositorio = new RepositorioAmigo();
+
+
         public char ControleAmigos()
         {
 
@@ -14,9 +17,9 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             Console.WriteLine();
 
             Console.WriteLine("1 - Inserir novos amigos");
-            Console.WriteLine("2 - Editar amigos ");
+            Console.WriteLine("2 - Visualizar amigos cadastrados ");
             Console.WriteLine("3 - Excluir Amigos");
-            Console.WriteLine("4 - Visualizar amigos cadastrados");
+            Console.WriteLine("4 - Editar Amigos");
             Console.WriteLine("5 - Visualizar emprestimos de amigos");
             Console.WriteLine("S - Sair");
 
@@ -44,20 +47,51 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             amigo.telefone = telefone;
 
             return amigo;
-
-
         }
-
-        internal void CadastrarAmigos()
+        public void CadastrarAmigos()
         {
             Console.Clear();
             Console.WriteLine("---------------------------");
             Console.WriteLine("     Cadastrar Amigo       ");
             Console.WriteLine("---------------------------");
 
-            ObterDados();
+            Amigo amigo = ObterDados();
+
+            repositorio.CadastrarRegistro(amigo);
+
+            Console.WriteLine($"Amigo {amigo.nome} cadastrado com sucesso!");
+            Console.ReadLine();
+        }
+
+        public void VisualizarAmigos()
+        {
+
+            Console.WriteLine("Visualização de Amigos");
+
+            Console.WriteLine();
+
+            Console.WriteLine(
+                "{0, -10} | {1, -20} | {2, -30}" ,
+                 "Nome", "Nome do Responsavel", "Telefone"
+            );
+
+            Amigo[] amigos = repositorio.SelecionarRegistros();
+
+            for (int i = 0; i < amigos.Length; i++)
+            {
+                Amigo f = amigos[i];
+
+                if (f == null)
+                    continue;
+
+                Console.WriteLine(
+                   "{0, -10} | {1, -20} | {2, -30} ",
+                    f.nome, f.nomeResponsavel, f.telefone
+                );
+            }
 
             Console.ReadLine();
         }
+    
     }
 }

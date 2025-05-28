@@ -28,6 +28,9 @@ namespace Trabalho_02___ClubeDaLeitura
                         case '1':
                             telaAmigo.CadastrarAmigos();
                             break;
+                        case '2':
+                            telaAmigo.VisualizarAmigos();
+                            break;
 
                     }
 
