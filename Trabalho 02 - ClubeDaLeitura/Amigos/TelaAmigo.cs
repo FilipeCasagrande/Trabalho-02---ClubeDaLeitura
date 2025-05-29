@@ -59,6 +59,24 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 
             Amigo amigo = ObterDados();
 
+            string erros = amigo.Validar();
+
+            if (erros.Length > 0)
+            {
+                Console.WriteLine();
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(erros);
+                Console.ResetColor();
+
+                Console.Write("\nDigite ENTER para continuar...");
+                Console.ReadLine();
+
+                CadastrarAmigos();
+
+                return;
+            }
+
             repositorio.CadastrarRegistro(amigo);
 
             Console.WriteLine($"Amigo {amigo.nome} cadastrado com sucesso!");
@@ -138,6 +156,17 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 
             Console.WriteLine($"Amigo: {nomeAmigo} deletado com sucesso!");
             Console.ReadLine();
+        }
+        public void Emprestimos()
+        {
+            Console.Clear();
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("     Emprestimos amigo     ");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine();
+
+
+
         }
     }
 }
