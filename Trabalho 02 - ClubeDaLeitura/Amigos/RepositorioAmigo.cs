@@ -51,6 +51,19 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 
             return null;
         }
+        public void DeletarAmigo(string nomeAmigo)
+        {
+            for (int i = 0; i < amigos.Length; i++)
+            {
+                if (amigos[i] == null)
+                    continue;
 
+                else if (amigos[i].nome == nomeAmigo)
+                {
+                    amigos[i] = null;
+
+                }
+            }
+        }
     }
 }

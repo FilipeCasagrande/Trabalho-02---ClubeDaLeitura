@@ -36,6 +36,9 @@ namespace Trabalho_02___ClubeDaLeitura
                         case '3':
                             telaAmigo.EditarAmigo();
                             break;
+                        case '4':
+                            telaAmigo.ExcluirAmigo();
+                            break;
                     }
 
                 }

@@ -1,4 +1,7 @@
 ﻿
+
+using Microsoft.Win32;
+
 namespace Trabalho_02___ClubeDaLeitura.Amigos
 {
     public class TelaAmigo
@@ -116,6 +119,24 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             repositorio.EditarRegistro(nomeAmigo, registroAtualizado);
 
             Console.WriteLine($"\n{registroAtualizado.nome} editado com sucesso!");
+            Console.ReadLine();
+        }
+        public void ExcluirAmigo()
+        {
+            Console.Clear();
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("     Excluir Amigo         ");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine();
+
+            VisualizarAmigos();
+
+            Console.Write("Digite o nome do amigo que deseja excluir: ");
+            string nomeAmigo = Console.ReadLine();
+
+            repositorio.DeletarAmigo(nomeAmigo);
+
+            Console.WriteLine($"Amigo: {nomeAmigo} deletado com sucesso!");
             Console.ReadLine();
         }
     }
