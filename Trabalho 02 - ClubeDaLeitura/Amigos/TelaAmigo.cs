@@ -1,12 +1,20 @@
 ﻿
 
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 using Microsoft.Win32;
+using Trabalho_02___ClubeDaLeitura.Compartilhado;
 
 namespace Trabalho_02___ClubeDaLeitura.Amigos
 {
-    public class TelaAmigo
+    public class TelaAmigo : TelaBase
     {
-        RepositorioAmigo repositorio = new RepositorioAmigo();
+        private RepositorioAmigo repositorioAmigo;
+
+        public TelaAmigo(RepositorioAmigo repositorioAmigo) : base("Amigo", repositorioAmigo)
+    {
+        this.repositorioAmigo = repositorioAmigo;
+    }
 
         public char ControleAmigos()
         {
@@ -31,7 +39,7 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             return opcao;
         }
 
-        public Amigo ObterDados()
+        protected override Amigo ObterDados()
         {
             Console.WriteLine("Informe o nome do amigo");
             string nome = Console.ReadLine();
@@ -42,6 +50,8 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             Console.WriteLine("Informe um Telefone");
             string telefone = Console.ReadLine();
 
+
+
             Amigo amigo = new Amigo();
 
             amigo.nome = nome;
@@ -50,40 +60,8 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 
             return amigo;
         }
-        public void CadastrarAmigos()
-        {
-            Console.Clear();
-            Console.WriteLine("---------------------------");
-            Console.WriteLine("     Cadastrar Amigo       ");
-            Console.WriteLine("---------------------------");
 
-            Amigo amigo = ObterDados();
-
-            string erros = amigo.Validar();
-
-            if (erros.Length > 0)
-            {
-                Console.WriteLine();
-
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(erros);
-                Console.ResetColor();
-
-                Console.Write("\nDigite ENTER para continuar...");
-                Console.ReadLine();
-
-                CadastrarAmigos();
-
-                return;
-            }
-
-            repositorio.CadastrarRegistro(amigo);
-
-            Console.WriteLine($"Amigo {amigo.nome} cadastrado com sucesso!");
-            Console.ReadLine();
-        }
-
-        public void VisualizarAmigos()
+        public override void VisualizarRegistros()
         {
             Console.Clear();
             Console.WriteLine("---------------------------");
@@ -95,68 +73,27 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             Console.WriteLine();
 
             Console.WriteLine(
-                "{0, -10} | {1, -20} | {2, -30}" ,
-                 "Nome", "Nome do Responsavel", "Telefone"
+                "{0, -10} | {1, -10} | {2, -20} | {3, -30}" ,
+                 "ID", "Nome", "Nome do Responsavel", "Telefone"
             );
 
-            Amigo[] amigos = repositorio.SelecionarRegistros();
+            EntidadeBase[] amigos = repositorioAmigo.SelecionarRegistros();
 
             for (int i = 0; i < amigos.Length; i++)
             {
-                Amigo a = amigos[i];
+                Amigo a = (Amigo)amigos[i];
 
                 if (a == null)
                     continue;
 
                 Console.WriteLine(
-                   "{0, -10} | {1, -20} | {2, -30} ",
-                    a.nome, a.nomeResponsavel, a.telefone
+                   "{0, -10} | {1, -10} | {2, -20} | {3, -30} ",
+                    a.id, a.nome, a.nomeResponsavel, a.telefone
                 );
             }
             Console.ReadLine();
         }
-        public void EditarAmigo()
-        {
-            Console.Clear();
-            Console.WriteLine("---------------------------");
-            Console.WriteLine("     Editar Amigo       ");
-            Console.WriteLine("---------------------------");
 
-            Console.WriteLine($"Edição de Amigos");
-
-            Console.WriteLine();
-            VisualizarAmigos();
-
-            Console.Write("Digite o nome do amigo que deseja editar: ");
-            string nomeAmigo = Console.ReadLine();
-
-            Console.WriteLine("Digite Os novos Dados");
-
-           Amigo registroAtualizado = ObterDados();
-
-            repositorio.EditarRegistro(nomeAmigo, registroAtualizado);
-
-            Console.WriteLine($"\n{registroAtualizado.nome} editado com sucesso!");
-            Console.ReadLine();
-        }
-        public void ExcluirAmigo()
-        {
-            Console.Clear();
-            Console.WriteLine("---------------------------");
-            Console.WriteLine("     Excluir Amigo         ");
-            Console.WriteLine("---------------------------");
-            Console.WriteLine();
-
-            VisualizarAmigos();
-
-            Console.Write("Digite o nome do amigo que deseja excluir: ");
-            string nomeAmigo = Console.ReadLine();
-
-            repositorio.DeletarAmigo(nomeAmigo);
-
-            Console.WriteLine($"Amigo: {nomeAmigo} deletado com sucesso!");
-            Console.ReadLine();
-        }
         public void Emprestimos()
         {
             Console.Clear();
@@ -165,8 +102,6 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             Console.WriteLine("---------------------------");
             Console.WriteLine();
 
-
-
-        }
+        } // FINALIZAR APÓS ETAPA 3
     }
 }

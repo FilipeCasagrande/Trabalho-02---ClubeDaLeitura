@@ -8,8 +8,10 @@ namespace Trabalho_02___ClubeDaLeitura
         static void Main(string[] args)
         {
             TelaPrincipal telaPrincipal = new TelaPrincipal();
-            TelaAmigo telaAmigo = new TelaAmigo();
 
+
+            RepositorioAmigo repositorioAmigo = new RepositorioAmigo(); 
+            TelaAmigo telaAmigo = new TelaAmigo(repositorioAmigo);
 
             while (true)
             {
@@ -26,25 +28,21 @@ namespace Trabalho_02___ClubeDaLeitura
                     switch (opcao)
                     {
                         case '1':
-                            telaAmigo.CadastrarAmigos();
+                            telaAmigo.CadastrarRegistro();
                             break;
 
                         case '2':
-                            telaAmigo.VisualizarAmigos();
+                            telaAmigo.VisualizarRegistros();
                             break;
 
                         case '3':
-                            telaAmigo.EditarAmigo();
+                            telaAmigo.EditarRegistro();
                             break;
                         case '4':
-                            telaAmigo.ExcluirAmigo();
+                            telaAmigo.ExcluirRegistro();
                             break;
                     }
-
                 }
-
-
-
             }
         }
     }

@@ -1,23 +1,25 @@
 ﻿using System.Text.RegularExpressions;
+using Trabalho_02___ClubeDaLeitura.Compartilhado;
 
 namespace Trabalho_02___ClubeDaLeitura.Amigos
 {
-     public class Amigo
+     public class Amigo : EntidadeBase
     {
+        public int id;
         public string nome;
         public string nomeResponsavel;
         public string telefone;
 
-        public void AtualizarRegistro(Amigo registroAtualizado)
+        public override void AtualizarRegistro(EntidadeBase entidade)
         {
-            Amigo amigoAtualizado = (Amigo)registroAtualizado;
+            Amigo amigoAtualizado = (Amigo)entidade;
 
             this.nome = amigoAtualizado.nome;
             this.nomeResponsavel = amigoAtualizado.nomeResponsavel;
             this.telefone = amigoAtualizado.telefone;
         }
 
-        public  string Validar()
+        public  override string Validar()
         {
             string erros = "";
             string padraoTelefone =  @"^\(\d{2}\) \d{4,5}-\d{4}$";
