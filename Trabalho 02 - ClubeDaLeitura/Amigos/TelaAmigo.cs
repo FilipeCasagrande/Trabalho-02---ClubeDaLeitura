@@ -5,7 +5,6 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
     {
         RepositorioAmigo repositorio = new RepositorioAmigo();
 
-
         public char ControleAmigos()
         {
 
@@ -18,8 +17,8 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 
             Console.WriteLine("1 - Inserir novos amigos");
             Console.WriteLine("2 - Visualizar amigos cadastrados ");
-            Console.WriteLine("3 - Excluir Amigos");
-            Console.WriteLine("4 - Editar Amigos");
+            Console.WriteLine("3 - Editar Amigos");
+            Console.WriteLine("4 - Excluir Amigos");
             Console.WriteLine("5 - Visualizar emprestimos de amigos");
             Console.WriteLine("S - Sair");
 
@@ -65,6 +64,10 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 
         public void VisualizarAmigos()
         {
+            Console.Clear();
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("     Visualizar Amigos     ");
+            Console.WriteLine("---------------------------");
 
             Console.WriteLine("Visualização de Amigos");
 
@@ -79,19 +82,41 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 
             for (int i = 0; i < amigos.Length; i++)
             {
-                Amigo f = amigos[i];
+                Amigo a = amigos[i];
 
-                if (f == null)
+                if (a == null)
                     continue;
 
                 Console.WriteLine(
                    "{0, -10} | {1, -20} | {2, -30} ",
-                    f.nome, f.nomeResponsavel, f.telefone
+                    a.nome, a.nomeResponsavel, a.telefone
                 );
             }
-
             Console.ReadLine();
         }
-    
+        public void EditarAmigo()
+        {
+            Console.Clear();
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("     Editar Amigo       ");
+            Console.WriteLine("---------------------------");
+
+            Console.WriteLine($"Edição de Amigos");
+
+            Console.WriteLine();
+            VisualizarAmigos();
+
+            Console.Write("Digite o nome do amigo que deseja editar: ");
+            string nomeAmigo = Console.ReadLine();
+
+            Console.WriteLine("Digite Os novos Dados");
+
+           Amigo registroAtualizado = ObterDados();
+
+            repositorio.EditarRegistro(nomeAmigo, registroAtualizado);
+
+            Console.WriteLine($"\n{registroAtualizado.nome} editado com sucesso!");
+            Console.ReadLine();
+        }
     }
 }
