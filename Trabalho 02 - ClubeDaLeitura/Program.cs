@@ -10,8 +10,8 @@ namespace Trabalho_02___ClubeDaLeitura
         {
             RepositorioAmigo repositorioAmigo = new RepositorioAmigo();
             RepositorioCaixas repositorioCaixas = new RepositorioCaixas();
-            
-            
+
+
             TelaPrincipal telaPrincipal = new TelaPrincipal();
             TelaAmigo telaAmigo = new TelaAmigo(repositorioAmigo);
             TelaCaixas telaCaixas = new TelaCaixas(repositorioCaixas);
@@ -22,7 +22,7 @@ namespace Trabalho_02___ClubeDaLeitura
                 char telaEscolhida = telaPrincipal.ApresentarMenuPrincipal();
 
 
-                if (telaEscolhida == 'S') 
+                if (telaEscolhida == 'S')
                     break;
 
                 if (telaEscolhida == '1')
@@ -54,9 +54,22 @@ namespace Trabalho_02___ClubeDaLeitura
 
                     switch (opcao)
                     {
-                        case'1':
+                        case '1':
                             telaCaixas.CadastrarRegistro();
                             break;
+                        case '2':
+                            telaCaixas.VisualizarRegistros();
+                            break;
+
+                            case '3':
+                            telaCaixas.EditarRegistro();
+                            break;
+
+                        case '4':
+                            telaCaixas.ExcluirRegistro();
+                            break;
+
+
                     }
 
                 }

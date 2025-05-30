@@ -31,7 +31,6 @@ namespace Trabalho_02___ClubeDaLeitura.Caixas
             Console.WriteLine("2 - Visualizar Todas as caixas ");
             Console.WriteLine("3 - Editar Caixa");
             Console.WriteLine("4 - Excluir Caixas");
-            Console.WriteLine("5 - Visualizar todas as caixas");
             Console.WriteLine("S - Sair");
 
             Console.WriteLine();
