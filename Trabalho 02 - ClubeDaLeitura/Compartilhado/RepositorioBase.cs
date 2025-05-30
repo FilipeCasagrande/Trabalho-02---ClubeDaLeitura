@@ -15,7 +15,6 @@ namespace Trabalho_02___ClubeDaLeitura.Compartilhado
         public void CadastrarRegistro(EntidadeBase novoRegistro)
         {
             registros[contadorRegistros] = novoRegistro;
-
             contadorRegistros++;
         }
 
@@ -69,6 +68,8 @@ namespace Trabalho_02___ClubeDaLeitura.Compartilhado
 
             return null;
         }
+
+        
     }
 }
 

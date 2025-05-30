@@ -50,7 +50,7 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             Console.WriteLine("Informe um Telefone");
             string telefone = Console.ReadLine();
 
-
+            
 
             Amigo amigo = new Amigo();
 
@@ -103,5 +103,7 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             Console.WriteLine();
 
         } // FINALIZAR APÓS ETAPA 3
+
+
     }
 }

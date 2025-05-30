@@ -52,11 +52,12 @@
                 Console.Write("\nDigite ENTER para continuar...");
                 Console.ReadLine();
 
+                
                 CadastrarRegistro();
 
                 return;
             }
-
+            
             repositorio.CadastrarRegistro(novoRegistro);
 
             Console.WriteLine($"\n{nomeEntidade} cadastrado com sucesso!");
@@ -108,13 +109,13 @@
         }
 
         public abstract void VisualizarRegistros();
-
         protected void ExibirCabecalho()
         {
             Console.Clear();
             Console.WriteLine($"Gestão de {nomeEntidade}s");
             Console.WriteLine();
         }
+
 
         protected abstract EntidadeBase ObterDados();
     }

@@ -1,4 +1,5 @@
 ﻿using Trabalho_02___ClubeDaLeitura.Amigos;
+using Trabalho_02___ClubeDaLeitura.Caixas;
 using Trabalho_02___ClubeDaLeitura.Compartilhado;
 
 namespace Trabalho_02___ClubeDaLeitura
@@ -7,11 +8,14 @@ namespace Trabalho_02___ClubeDaLeitura
     {
         static void Main(string[] args)
         {
+            RepositorioAmigo repositorioAmigo = new RepositorioAmigo();
+            RepositorioCaixas repositorioCaixas = new RepositorioCaixas();
+            
+            
             TelaPrincipal telaPrincipal = new TelaPrincipal();
-
-
-            RepositorioAmigo repositorioAmigo = new RepositorioAmigo(); 
             TelaAmigo telaAmigo = new TelaAmigo(repositorioAmigo);
+            TelaCaixas telaCaixas = new TelaCaixas(repositorioCaixas);
+
 
             while (true)
             {
@@ -42,6 +46,19 @@ namespace Trabalho_02___ClubeDaLeitura
                             telaAmigo.ExcluirRegistro();
                             break;
                     }
+                }
+
+                if (telaEscolhida == '2')
+                {
+                    char opcao = telaCaixas.ControleDeCaixas();
+
+                    switch (opcao)
+                    {
+                        case'1':
+                            telaCaixas.CadastrarRegistro();
+                            break;
+                    }
+
                 }
             }
         }
