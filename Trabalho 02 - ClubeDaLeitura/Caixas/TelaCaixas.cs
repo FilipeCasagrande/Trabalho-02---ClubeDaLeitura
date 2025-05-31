@@ -17,7 +17,7 @@ namespace Trabalho_02___ClubeDaLeitura.Caixas
         {
             this.repositorioCaixas = repositorioCaixas;
         }
-        public char ControleDeCaixas()
+        public int ControleDeCaixas()
         {
 
             Console.Clear();
@@ -35,7 +35,7 @@ namespace Trabalho_02___ClubeDaLeitura.Caixas
 
             Console.WriteLine();
             Console.Write("Infome uma opção válida:");
-            char opcao = Console.ReadLine()[0];
+            int opcao = Convert.ToInt32(Console.ReadLine());
             return opcao;
         }
 
@@ -68,7 +68,7 @@ namespace Trabalho_02___ClubeDaLeitura.Caixas
             Console.WriteLine("     Visualizar Caixas     ");
             Console.WriteLine("---------------------------");
 
-            Console.WriteLine("Visualização de Amigos");
+            Console.WriteLine("Visualização de Caixas");
 
             Console.WriteLine();
 

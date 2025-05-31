@@ -8,9 +8,9 @@ namespace Trabalho_02___ClubeDaLeitura.Compartilhado
 {
      public class TelaPrincipal
     {
-        private char opcaoEscolhida;
+        private int opcaoEscolhida;
 
-        public char ApresentarMenuPrincipal()
+        public int ApresentarMenuPrincipal()
         {
             Console.Clear();
             Console.WriteLine("---------------------------");
@@ -23,12 +23,12 @@ namespace Trabalho_02___ClubeDaLeitura.Compartilhado
             Console.WriteLine("2 - Controle de Caixas");
             Console.WriteLine("3 - Controle de Revistas");
             Console.WriteLine("4 - Controle de Emprestimos");
-            Console.WriteLine("S - Sair");
+            Console.WriteLine("5 - Sair");
 
             Console.WriteLine();
 
             Console.Write("Escolha uma opção válida: ");
-            opcaoEscolhida = Console.ReadLine().ToUpper()[0];
+            opcaoEscolhida = Convert.ToInt32(Console.ReadLine());
 
             return opcaoEscolhida;
         }

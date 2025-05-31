@@ -16,7 +16,7 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
         this.repositorioAmigo = repositorioAmigo;
     }
 
-        public char ControleAmigos()
+        public int ControleAmigos()
         {
 
             Console.Clear();
@@ -31,11 +31,11 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             Console.WriteLine("3 - Editar Amigos");
             Console.WriteLine("4 - Excluir Amigos");
             Console.WriteLine("5 - Visualizar emprestimos de amigos");
-            Console.WriteLine("S - Sair");
+            Console.WriteLine("6 - Sair");
 
             Console.WriteLine();
             Console.Write("Infome uma opção válida:");
-            char opcao = Console.ReadLine()[0];
+            int opcao = Convert.ToInt32(Console.ReadLine());
             return opcao;
         }
 
