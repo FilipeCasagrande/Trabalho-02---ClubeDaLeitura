@@ -3,6 +3,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using Microsoft.Win32;
+using Trabalho_02___ClubeDaLeitura.Caixas;
 using Trabalho_02___ClubeDaLeitura.Compartilhado;
 
 namespace Trabalho_02___ClubeDaLeitura.Amigos
@@ -10,11 +11,13 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
     public class TelaAmigo : TelaBase
     {
         private RepositorioAmigo repositorioAmigo;
+        private RepositorioCaixas repositorioCaixas;
 
-        public TelaAmigo(RepositorioAmigo repositorioAmigo) : base("Amigo", repositorioAmigo)
-    {
-        this.repositorioAmigo = repositorioAmigo;
-    }
+        public TelaAmigo(RepositorioAmigo repositorioAmigo,RepositorioCaixas repositorioCaixas) : base("Amigo", repositorioAmigo)
+        {
+            this.repositorioAmigo = repositorioAmigo;
+            this.repositorioCaixas = repositorioCaixas;
+        }
 
         public int ControleAmigos()
         {
@@ -50,7 +53,7 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             Console.WriteLine("Informe um Telefone");
             string telefone = Console.ReadLine();
 
-            
+
 
             Amigo amigo = new Amigo();
 
@@ -60,7 +63,6 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 
             return amigo;
         }
-
         public override void VisualizarRegistros()
         {
             Console.Clear();
@@ -73,7 +75,7 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             Console.WriteLine();
 
             Console.WriteLine(
-                "{0, -10} | {1, -10} | {2, -20} | {3, -30}" ,
+                "{0, -10} | {1, -10} | {2, -20} | {3, -30}",
                  "ID", "Nome", "Nome do Responsavel", "Telefone"
             );
 
@@ -98,12 +100,10 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
         {
             Console.Clear();
             Console.WriteLine("---------------------------");
-            Console.WriteLine("     Emprestimos amigo     ");
+            Console.WriteLine("     Emprestimos Amigo     ");
             Console.WriteLine("---------------------------");
             Console.WriteLine();
 
         } // FINALIZAR APÓS ETAPA 3
-
-
     }
 }

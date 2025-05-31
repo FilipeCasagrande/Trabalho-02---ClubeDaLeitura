@@ -11,7 +11,7 @@
             this.repositorio = repositorio;
         }
 
-        public char ApresentarMenu()
+        public int ApresentarMenu()
         {
             ExibirCabecalho();
 
@@ -24,7 +24,7 @@
             Console.WriteLine();
 
             Console.Write("Digite uma opção válida: ");
-            char opcaoEscolhida = Console.ReadLine().ToUpper()[0];
+            int opcaoEscolhida = Convert.ToInt32(Console.ReadLine());
 
             return opcaoEscolhida;
         }

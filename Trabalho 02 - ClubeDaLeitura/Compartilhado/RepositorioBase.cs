@@ -65,11 +65,9 @@ namespace Trabalho_02___ClubeDaLeitura.Compartilhado
                 if (registro.id == idSelecionado)
                     return registro;
             }
-
             return null;
         }
 
-        
     }
 }
 
