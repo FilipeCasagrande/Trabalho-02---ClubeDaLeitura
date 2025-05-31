@@ -84,6 +84,13 @@ namespace Trabalho_02___ClubeDaLeitura
                         case 2:
                             telaRevistas.VisualizarRegistros();
                             break;
+                            
+                        case 3:
+                            telaRevistas.EditarRegistro();
+                            break;
+                        case 4:
+                            telaRevistas.ExcluirRegistro();
+                            break;
                     }
                 }
             }

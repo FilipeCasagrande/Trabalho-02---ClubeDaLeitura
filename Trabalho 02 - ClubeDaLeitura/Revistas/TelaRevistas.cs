@@ -15,7 +15,7 @@ namespace Trabalho_02___ClubeDaLeitura.Revistas
             this.repositorioRevistas = repositorioRevistas;
             this.repositorioCaixas = repositorioCaixas;
         }
-        public char ControleDeRevistas()
+        public int ControleDeRevistas()
         {
             Console.Clear();
             Console.WriteLine("---------------------------");
@@ -33,7 +33,7 @@ namespace Trabalho_02___ClubeDaLeitura.Revistas
 
             Console.WriteLine();
             Console.Write("Infome uma opção válida:");
-            char opcao = Console.ReadLine()[0];
+            int opcao = Convert.ToInt32(Console.ReadLine());
             return opcao;
         }
         protected override Revistas ObterDados()
