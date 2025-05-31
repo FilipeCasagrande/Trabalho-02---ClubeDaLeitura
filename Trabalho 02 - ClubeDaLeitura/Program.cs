@@ -9,91 +9,46 @@ namespace Trabalho_02___ClubeDaLeitura
     {
         static void Main(string[] args)
         {
-            RepositorioAmigo repositorioAmigo = new RepositorioAmigo();
-            RepositorioCaixas repositorioCaixas = new RepositorioCaixas();
-            RepositorioRevistas repositorioRevistas = new RepositorioRevistas();
-
-            TelaRevistas telaRevistas = new TelaRevistas(repositorioCaixas, repositorioRevistas);
+            
             TelaPrincipal telaPrincipal = new TelaPrincipal();
-            TelaAmigo telaAmigo = new TelaAmigo(repositorioAmigo);
-            TelaCaixas telaCaixas = new TelaCaixas(repositorioCaixas);
-
 
             while (true)
             {
-                int telaEscolhida = telaPrincipal.ApresentarMenuPrincipal();
+                telaPrincipal.ApresentarMenuPrincipal();
 
-                if (telaEscolhida == 5)
+                TelaBase telaEscolhida = telaPrincipal.ObterTela();
+
+                if (telaEscolhida == null)
                     break;
 
-                if (telaEscolhida == 1)
+                if (telaEscolhida == null)
+                    break;
+
+                int opcaoEscolhida = telaEscolhida.ApresentarMenu();
+
+                if (opcaoEscolhida == 'S')
+                    break;
+
+                switch (opcaoEscolhida)
                 {
-                    int opcao = telaAmigo.ControleAmigos();
+                    case 1:
+                        telaEscolhida.CadastrarRegistro();
+                        break;
 
-                    switch (opcao)
-                    {
-                        case 1:
-                            telaAmigo.CadastrarRegistro();
-                            break;
+                    case 2:
+                        telaEscolhida.VisualizarRegistros();
+                        break;
 
-                        case 2:
-                            telaAmigo.VisualizarRegistros();
-                            break;
+                    case 3:
+                        telaEscolhida.EditarRegistro();
+                        break;
 
-                        case 3:
-                            telaAmigo.EditarRegistro();
-                            break;
-                        case 4:
-                            telaAmigo.ExcluirRegistro();
-                            break;
-                    }
-                }
-
-                if (telaEscolhida == 2)
-                {
-                    int opcao = telaCaixas.ControleDeCaixas();
-
-                    switch (opcao)
-                    {
-                        case 1:
-                            telaCaixas.CadastrarRegistro();
-                            break;
-                        case 2:
-                            telaCaixas.VisualizarRegistros();
-                            break;
-
-                        case 3:
-                            telaCaixas.EditarRegistro();
-                            break;
-
-                        case 4:
-                            telaCaixas.ExcluirRegistro();
-                            break;
-                    }
-
-                    }
-                if (telaEscolhida == 3)
-                {
-                    int opcaoEscolha = telaRevistas.ControleDeRevistas();
-
-                    switch (opcaoEscolha)
-                    {
-                        case 1:
-                            telaRevistas.CadastrarRegistro();
-                            break;
-                        case 2:
-                            telaRevistas.VisualizarRegistros();
-                            break;
-                            
-                        case 3:
-                            telaRevistas.EditarRegistro();
-                            break;
-                        case 4:
-                            telaRevistas.ExcluirRegistro();
-                            break;
-                    }
+                    case 4:
+                        telaEscolhida.ExcluirRegistro();
+                        break;
                 }
             }
+            
         }
     }
 }

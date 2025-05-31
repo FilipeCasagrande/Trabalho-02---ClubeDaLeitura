@@ -11,7 +11,7 @@
             this.repositorio = repositorio;
         }
 
-        public char ApresentarMenu()
+        public int ApresentarMenu()
         {
             ExibirCabecalho();
 
@@ -19,12 +19,12 @@
             Console.WriteLine($"2 - Visualizar {nomeEntidade}s");
             Console.WriteLine($"3 - Editar {nomeEntidade}");
             Console.WriteLine($"4 - Excluir {nomeEntidade}");
-            Console.WriteLine($"S - Sair");
+            Console.WriteLine($"5 - Sair");
 
             Console.WriteLine();
 
             Console.Write("Digite uma opção válida: ");
-            char opcaoEscolhida = Console.ReadLine().ToUpper()[0];
+            int opcaoEscolhida = Convert.ToInt32(Console.ReadLine());
 
             return opcaoEscolhida;
         }
@@ -115,7 +115,6 @@
             Console.WriteLine($"Gestão de {nomeEntidade}s");
             Console.WriteLine();
         }
-
 
         protected abstract EntidadeBase ObterDados();
     }

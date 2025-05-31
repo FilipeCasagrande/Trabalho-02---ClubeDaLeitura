@@ -1,19 +1,24 @@
 ﻿using System.Runtime.CompilerServices;
+using Trabalho_02___ClubeDaLeitura.Amigos;
 using Trabalho_02___ClubeDaLeitura.Caixas;
 using Trabalho_02___ClubeDaLeitura.Compartilhado;
 
 namespace Trabalho_02___ClubeDaLeitura.Revistas
 {
-     public class TelaRevistas : TelaBase
+    public class TelaRevistas : TelaBase
     {
         private RepositorioRevistas repositorioRevistas;
         private RepositorioCaixas repositorioCaixas;
+        private RepositorioAmigo RepositorioAmigo;
 
-        public TelaRevistas(RepositorioCaixas repositorioCaixas,
-            RepositorioRevistas repositorioRevistas) : base("Revistas", repositorioRevistas)
+        public TelaRevistas(RepositorioRevistas repositorioRevistas,
+            RepositorioAmigo repositorioAmigo, 
+            RepositorioCaixas repositorioCaixas) : 
+            base("Revistas", repositorioRevistas)
         {
             this.repositorioRevistas = repositorioRevistas;
             this.repositorioCaixas = repositorioCaixas;
+            this.RepositorioAmigo = repositorioAmigo;
         }
         public int ControleDeRevistas()
         {
@@ -44,7 +49,7 @@ namespace Trabalho_02___ClubeDaLeitura.Revistas
             Console.WriteLine("Informe a Edição e ano de publicação ");
             string numeroAno = Console.ReadLine();
 
-            Console.WriteLine($"A Revista{titulo} está Disponível");
+            Console.WriteLine($"A Revista {titulo} está Disponível");
             string status = "Disponível";
 
             Revistas revista = new Revistas();
