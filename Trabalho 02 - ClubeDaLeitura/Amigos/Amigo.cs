@@ -20,7 +20,7 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             this.telefone = amigoAtualizado.telefone;
         }
 
-        public override string Validar()
+        public  override string Validar()
         {
             string erros = "";
 
@@ -34,11 +34,10 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 
             else if (!Regex.IsMatch(telefone, padraoTelefone))
                 erros += "O campo \"Telefone\" deve estar no formato (XX) XXXX-XXXX ou (XX) XXXXX-XXXX.\n";
-
-
+            
             return erros;
         }
-
+        
 
     }
 }

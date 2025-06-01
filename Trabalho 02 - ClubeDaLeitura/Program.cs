@@ -1,6 +1,7 @@
 ﻿using Trabalho_02___ClubeDaLeitura.Amigos;
 using Trabalho_02___ClubeDaLeitura.Caixas;
 using Trabalho_02___ClubeDaLeitura.Compartilhado;
+using Trabalho_02___ClubeDaLeitura.Emprestimo;
 using Trabalho_02___ClubeDaLeitura.Revistas;
 
 namespace Trabalho_02___ClubeDaLeitura
@@ -9,46 +10,125 @@ namespace Trabalho_02___ClubeDaLeitura
     {
         static void Main(string[] args)
         {
-            
+            RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
+            RepositorioAmigo repositorioAmigo = new RepositorioAmigo();
+            RepositorioCaixas repositorioCaixas = new RepositorioCaixas();
+            RepositorioRevistas repositorioRevistas = new RepositorioRevistas();
+
+            TelaEmprestimo telaEmprestimo = new TelaEmprestimo(repositorioEmprestimo, repositorioRevistas, repositorioAmigo, repositorioCaixas);
+            TelaRevistas telaRevistas = new TelaRevistas(repositorioRevistas, repositorioAmigo, repositorioCaixas);
             TelaPrincipal telaPrincipal = new TelaPrincipal();
+            TelaAmigo telaAmigo = new TelaAmigo(repositorioAmigo, repositorioCaixas);
+            TelaCaixas telaCaixas = new TelaCaixas(repositorioCaixas);
+
 
             while (true)
             {
-                telaPrincipal.ApresentarMenuPrincipal();
+                int telaEscolhida = telaPrincipal.ApresentarMenuPrincipal();
 
-                TelaBase telaEscolhida = telaPrincipal.ObterTela();
-
-                if (telaEscolhida == null)
+                if (telaEscolhida == 5)
                     break;
 
-                if (telaEscolhida == null)
-                    break;
-
-                int opcaoEscolhida = telaEscolhida.ApresentarMenu();
-
-                if (opcaoEscolhida == 'S')
-                    break;
-
-                switch (opcaoEscolhida)
+                if (telaEscolhida == 1)
                 {
-                    case 1:
-                        telaEscolhida.CadastrarRegistro();
-                        break;
+                    int opcao = telaAmigo.ControleAmigos();
 
-                    case 2:
-                        telaEscolhida.VisualizarRegistros();
-                        break;
+                    switch (opcao)
+                    {
+                        case 1:
+                            telaAmigo.CadastrarRegistro();
+                            break;
 
-                    case 3:
-                        telaEscolhida.EditarRegistro();
-                        break;
+                        case 2:
+                            telaAmigo.VisualizarRegistros();
+                            break;
 
-                    case 4:
-                        telaEscolhida.ExcluirRegistro();
-                        break;
+                        case 3:
+                            telaAmigo.EditarRegistro();
+                            break;
+                        case 4:
+                            telaAmigo.ExcluirRegistro();
+                            break;
+                    }
+                }
+
+                if (telaEscolhida == 2)
+                {
+                    int opcao = telaCaixas.ControleDeCaixas();
+
+                    switch (opcao)
+                    {
+                        case 1:
+                            telaCaixas.CadastrarRegistro();
+                            break;
+                        case 2:
+                            telaCaixas.VisualizarRegistros();
+                            break;
+
+                        case 3:
+                            telaCaixas.EditarRegistro();
+                            break;
+
+                        case 4:
+                            telaCaixas.ExcluirRegistro();
+                            break;
+                    }
+
+                }
+                if (telaEscolhida == 3)
+                {
+                    int opcaoEscolha = telaRevistas.ControleDeRevistas();
+
+                    switch (opcaoEscolha)
+                    {
+                        case 1:
+                            telaRevistas.CadastrarRegistro();
+                            break;
+                        case 2:
+                            telaRevistas.VisualizarRegistros();
+                            break;
+
+                        case 3:
+                            telaRevistas.EditarRegistro();
+                            break;
+                        case 4:
+                            telaRevistas.ExcluirRegistro();
+                            break;
+                    }
+                }
+                if (telaEscolhida == 4)
+                {
+                    int opcaoEscolha = telaEmprestimo.ControleDeEmprestimos();
+
+                    switch (opcaoEscolha)
+                    {
+                        case 1:
+                            telaEmprestimo.CadastrarRegistro();
+                            break;
+                        case 2:
+                            telaEmprestimo.VisualizarRegistros();
+                            break;
+
+                        case 3:
+                            telaEmprestimo.EditarRegistro();
+                            break;
+                        case 4:
+                            telaEmprestimo.ExcluirRegistro();
+                            break;
+                        case 5:
+                            telaEmprestimo.VisualizarRevistas();
+                            break;
+                        //case 6:
+                           // telaEmprestimo.VisualizarAmigos();
+                           // break;
+                       // case 7:
+                          //  telaEmprestimo.RegistrarDevolucao();
+                         //   break;
+
+                    }
                 }
             }
-            
         }
     }
 }
+
