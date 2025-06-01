@@ -61,6 +61,7 @@ namespace Trabalho_02___ClubeDaLeitura.Emprestimo
             VisualizarRevistas();
 
 
+
             Console.WriteLine("Informe Nome do Amigo que alugou: ");
             string amigo = Console.ReadLine();
 
