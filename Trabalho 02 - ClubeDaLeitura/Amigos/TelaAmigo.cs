@@ -44,16 +44,26 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 
         protected override Amigo ObterDados()
         {
-            Console.WriteLine("Informe o nome do amigo");
+            Console.Write("Informe o nome do amigo:");
             string nome = Console.ReadLine();
 
-            Console.WriteLine("Informe o nome do Responsável");
+            Console.Write("Informe o nome do Responsável:");
             string nomeResponsavel = Console.ReadLine();
 
-            Console.WriteLine("Informe um Telefone");
+            Console.Write("Informe um Telefone no formato (XX) XXXX-XXXX: ");
             string telefone = Console.ReadLine();
 
-
+            EntidadeBase[] verificarAmigo = repositorioAmigo.SelecionarRegistros();
+            
+            foreach(Amigo a in verificarAmigo)
+            {
+                if (a != null && a.nome == nome && a.telefone == telefone)
+                {
+                    Console.WriteLine("Já existe um amigo cadastrado com esse nome e telefone, cadastre novamente");
+                    ObterDados();
+                    return null; 
+                }
+            }
 
             Amigo amigo = new Amigo();
 
@@ -81,6 +91,8 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
 
             EntidadeBase[] amigos = repositorioAmigo.SelecionarRegistros();
 
+            
+
             for (int i = 0; i < amigos.Length; i++)
             {
                 Amigo a = (Amigo)amigos[i];
@@ -104,6 +116,8 @@ namespace Trabalho_02___ClubeDaLeitura.Amigos
             Console.WriteLine("---------------------------");
             Console.WriteLine();
 
-        } // FINALIZAR APÓS ETAPA 3
+        } 
+       
+
     }
 }

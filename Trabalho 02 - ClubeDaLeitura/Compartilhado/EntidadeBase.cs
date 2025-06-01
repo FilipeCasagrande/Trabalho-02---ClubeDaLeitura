@@ -13,7 +13,6 @@ namespace Trabalho_02___ClubeDaLeitura.Compartilhado
         public string nome;
         public string telefone;
 
-
         public abstract void AtualizarRegistro(EntidadeBase registroAtualizado);
         public abstract string Validar();
     }
