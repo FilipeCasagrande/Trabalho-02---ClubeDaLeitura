@@ -44,13 +44,24 @@ namespace Trabalho_02___ClubeDaLeitura.Caixas
             Console.WriteLine("Informe o nome da etiqueta");
             string etiqueta = Console.ReadLine();
 
-            Console.WriteLine("Informe a cor da etiqueta");
-            string cor = Console.ReadLine();
+            Console.WriteLine("Informe a cor da etiqueta, Branco, Azul, Verde, Vermelho ou Amarelo");
+            string cor = Console.ReadLine().ToLower();
 
-            Console.WriteLine("A caixa terá o número padrão de emprestimo de 7 dias");
-            string dias = "7";
+            Console.WriteLine("Defina o prazo maximo de emprestimo da caixa");
+            int dias = Convert.ToInt32(Console.ReadLine());
 
+            EntidadeBase[] verificarCaixas = repositorioCaixas.SelecionarRegistros();
 
+            foreach (Caixas c in verificarCaixas)
+            {
+                if (c != null && c.etiqueta == etiqueta)
+                {
+                    Console.WriteLine("Já existe uma etiqueta cadastrada com esse nome, cadastre novamente");
+                    Console.WriteLine();
+                    ObterDados();
+                    return null;
+                }
+            }
 
             Caixas caixa = new Caixas();
 

@@ -43,21 +43,32 @@ namespace Trabalho_02___ClubeDaLeitura.Revistas
         }
         protected override Revistas ObterDados()
         {
+            
             Console.WriteLine("Informe o nome do título");
             string titulo = Console.ReadLine();
 
-            Console.WriteLine("Informe a Edição e ano de publicação ");
-            string numeroAno = Console.ReadLine();
+            Console.WriteLine("Informe a Edição e Ano de publicação ");
+            int numeroEdicao= Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"A Revista {titulo} está Disponível");
+            Console.WriteLine("Informe o Ano de publicação ");
+            int ano = Convert.ToInt32(Console.ReadLine());
+
             string status = "Disponível";
+
+            Console.WriteLine("Infrome a cor da Caixa para incluir a revista");
+            string caixas = Console.ReadLine().ToLower();
 
             Revistas revista = new Revistas();
 
             revista.titulo = titulo;
-            revista.numeroAno = numeroAno;
+            revista.numeroEdicao = numeroEdicao;
+            revista.ano = ano;
             revista.status = status;
+            revista.caixas = caixas;
 
+            Console.WriteLine($"A Revista {revista.titulo} está Disponível");
+            
+            
             return revista;
         }
         public override void VisualizarRegistros()
@@ -72,8 +83,8 @@ namespace Trabalho_02___ClubeDaLeitura.Revistas
             Console.WriteLine();
 
             Console.WriteLine(
-                "{0, -10} | {1, -10} | {2, -20} | {3, -30}",
-                 "ID", "titulo", "Edição e ano", "status"
+                "{0, -10} | {1, -10} | {2, -20} | {3, -30} | {4, -20}",
+                 "ID", "titulo", "Edição", "ano", "Status"
             );
 
             EntidadeBase[] revistas = repositorioRevistas.SelecionarRegistros();
@@ -86,12 +97,11 @@ namespace Trabalho_02___ClubeDaLeitura.Revistas
                     continue;
 
                 Console.WriteLine(
-                   "{0, -10} | {1, -10} | {2, -20} | {3, -30} ",
-                    r.id, r.titulo, r.numeroAno, r.status
+                   "{0, -10} | {1, -10} | {2, -20} | {3, -30} | {4, -20} ",
+                    r.id, r.titulo, r.numeroEdicao, r.ano , r.status
                 );
             }
             Console.ReadLine();
         }
-
     }
 }

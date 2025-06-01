@@ -60,8 +60,6 @@ namespace Trabalho_02___ClubeDaLeitura.Emprestimo
             
             VisualizarRevistas();
 
-
-
             Console.WriteLine("Informe Nome do Amigo que alugou: ");
             string amigo = Console.ReadLine();
 
@@ -133,8 +131,9 @@ namespace Trabalho_02___ClubeDaLeitura.Emprestimo
                 if (r == null)
                     continue;
 
-                Console.WriteLine("{0,-5} | {1,-20} | {2,-15} | {3,-15}",
-                    r.id, r.titulo, r.numeroAno, r.status);
+                Console.WriteLine(
+                   "{0, -10} | {1, -10} | {2, -20} | {3, -30} | {4, -20} ",
+                    r.id, r.titulo, r.numeroEdicao, r.ano, r.status);
             }
             Console.ReadLine();
         }

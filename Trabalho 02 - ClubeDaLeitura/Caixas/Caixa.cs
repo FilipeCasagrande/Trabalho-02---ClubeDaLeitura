@@ -14,7 +14,7 @@ namespace Trabalho_02___ClubeDaLeitura.Caixas
         public int id;
         public string etiqueta;
         public string cor;
-        public string dias;
+        public  int dias;
 
         public override void AtualizarRegistro(EntidadeBase entidade)
         {
@@ -29,11 +29,15 @@ namespace Trabalho_02___ClubeDaLeitura.Caixas
         {
             string erros = "";
 
-            string padraoTelefone = @"^\(\d{2}\) \d{4,5}-\d{4}$";
-
             if (etiqueta.Length > 50)
                 erros += "O campo \"Etiqueta\" deve conter no máximo 50 caracteres.\n";
+
+            if (cor != "branco" && cor != "azul" && cor != "verde" && cor != "vermelho" && cor != "amarelo")
+                erros += "O campo \"Cor\" deve conter uma das cores válidas.\n";
+
             return erros;
         }
+
+        
     }
 }

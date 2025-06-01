@@ -1,9 +1,12 @@
-﻿namespace Trabalho_02___ClubeDaLeitura.Compartilhado
+﻿using Trabalho_02___ClubeDaLeitura.Emprestimo;
+
+namespace Trabalho_02___ClubeDaLeitura.Compartilhado
 {
      public  abstract class TelaBase
     {
         protected string nomeEntidade;
         protected RepositorioBase repositorio;
+        
 
         protected TelaBase(string nomeEntidade, RepositorioBase repositorio)
         {
@@ -99,8 +102,9 @@
 
             Console.Write("Digite o id do registro que deseja selecionar: ");
             int idSelecionado = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine();
+           
+            
+            
 
             repositorio.ExcluirRegistro(idSelecionado);
 
