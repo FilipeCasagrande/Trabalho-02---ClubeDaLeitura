@@ -11,11 +11,15 @@ namespace Trabalho_02___ClubeDaLeitura.Compartilhado
 
         private EntidadeBase[] registros = new EntidadeBase[100];
         private int contadorRegistros = 0;
+        private int contadorId = 1;
 
         public void CadastrarRegistro(EntidadeBase novoRegistro)
         {
+            novoRegistro.id = contadorId;
             registros[contadorRegistros] = novoRegistro;
             contadorRegistros++;
+            contadorId++;
+            
         }
 
         public bool EditarRegistro(int idSelecionado, EntidadeBase registroAtualizado)
@@ -30,7 +34,7 @@ namespace Trabalho_02___ClubeDaLeitura.Compartilhado
             return true;
         }
 
-        public bool ExcluirRegistro(int idSelecionado)
+        public virtual bool ExcluirRegistro(int idSelecionado)
         {
             for (int i = 0; i < registros.Length; i++)
             {

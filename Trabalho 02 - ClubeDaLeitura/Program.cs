@@ -11,9 +11,10 @@ namespace Trabalho_02___ClubeDaLeitura
         static void Main(string[] args)
         {
             RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
-            RepositorioAmigo repositorioAmigo = new RepositorioAmigo();
-            RepositorioCaixas repositorioCaixas = new RepositorioCaixas();
+            RepositorioAmigo repositorioAmigo = new RepositorioAmigo(repositorioEmprestimo);
             RepositorioRevistas repositorioRevistas = new RepositorioRevistas();
+            RepositorioCaixas repositorioCaixas = new RepositorioCaixas();
+
 
 
             TelaEmprestimo telaEmprestimo = new TelaEmprestimo(repositorioEmprestimo, repositorioRevistas, repositorioAmigo, repositorioCaixas);
@@ -117,6 +118,15 @@ namespace Trabalho_02___ClubeDaLeitura
 
                         case 4:
                             telaEmprestimo.ExcluirRegistro();
+                            break;
+                        case 5:
+                            telaEmprestimo.VisualizarRevistas();
+                            break;
+                        case 6:
+                            telaEmprestimo.VisualizarAmigos();
+                            break;
+                        case 7:
+                            telaEmprestimo.RegistrarDevolucao("Devolvida");
                             break;
                     }
 

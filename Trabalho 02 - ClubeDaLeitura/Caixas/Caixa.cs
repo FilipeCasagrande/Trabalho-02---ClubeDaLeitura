@@ -11,7 +11,6 @@ namespace Trabalho_02___ClubeDaLeitura.Caixas
 {
     public class Caixas : EntidadeBase
     {
-        public int id;
         public string etiqueta;
         public string cor;
         public  int dias;

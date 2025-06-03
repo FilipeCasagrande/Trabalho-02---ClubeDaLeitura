@@ -9,29 +9,24 @@ namespace Trabalho_02___ClubeDaLeitura.Emprestimo
 {
     public class Emprestimo : EntidadeBase
     {
-        public int id;
-        public string amigo;
+        public int idAmigo;
+        public string nome;
         public string revista;
         public DateTime data;
         public string situacao;
 
-        public override void AtualizarRegistro(EntidadeBase entidade) // MUDAR
+        public override void AtualizarRegistro(EntidadeBase entidade)
         {
-            Emprestimo caixaAtualizado = (Emprestimo)entidade;
+            Emprestimo emprestimoAtualizado = (Emprestimo)entidade;
 
-            this.amigo = caixaAtualizado.amigo;
-            this.revista = caixaAtualizado.revista;
+            this.idAmigo = emprestimoAtualizado.idAmigo;
+            this.revista = emprestimoAtualizado.revista;
 
         }
 
-        public override string Validar() // MUDAR
+        public override string Validar() 
         {
             string erros = "";
-
-            string padraoTelefone = @"^\(\d{2}\) \d{4,5}-\d{4}$";
-
-            if (amigo.Length > 50)
-                erros += "O campo \"Etiqueta\" deve conter no máximo 50 caracteres.\n";
             return erros;
         }
     }

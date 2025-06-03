@@ -59,21 +59,25 @@ namespace Trabalho_02___ClubeDaLeitura.Emprestimo
             Console.WriteLine("Lista de revistas disponíveis");
             
             VisualizarRevistas();
+            VisualizarAmigos();
 
-            Console.WriteLine("Informe Nome do Amigo que alugou: ");
-            string amigo = Console.ReadLine();
+            Console.WriteLine("Informe o ID do Amigo que alugou:");
+            int idAmigo = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Informe o nome do amigo que alugou: ");
+            string nome = Console.ReadLine();
 
             Console.WriteLine("Informe a revista que alugou: ");
             string revista = Console.ReadLine();
 
             DateTime data = DateTime.Now;
-
-            Console.WriteLine("Informar a situação: ");
-            string situacao = Console.ReadLine();
+            
+            string situacao = "Emprestada";
 
             Emprestimo emprestimo = new Emprestimo();
 
-            emprestimo.amigo = amigo;
+            emprestimo.idAmigo = idAmigo;
+            emprestimo.nome = nome;
             emprestimo.revista = revista;
             emprestimo.data = data;
             emprestimo.situacao = situacao;
@@ -107,7 +111,7 @@ namespace Trabalho_02___ClubeDaLeitura.Emprestimo
 
                 Console.WriteLine(
                    "{0, -10} | {1, -10} | {2, -20} | {3, -30} | {4, -30} ",
-                    e.id, e.amigo, e.revista, e.data, e.situacao
+                    e.id, e.nome, e.revista, e.data, e.situacao
                 );
             }
             Console.ReadLine();
@@ -119,8 +123,9 @@ namespace Trabalho_02___ClubeDaLeitura.Emprestimo
             Console.WriteLine("    Revistas Disponíveis     ");
             Console.WriteLine("-----------------------------");
 
-            Console.WriteLine("{0,-5} | {1,-20} | {2,-15} | {3,-15}",
-                "ID", "Título", "Edição/Ano", "Status");
+            Console.WriteLine(
+                "{0, -10} | {1, -10} | {2, -20} | {3, -30} | {4, -20}",
+                 "ID", "titulo", "Edição", "ano", "Status");
 
             EntidadeBase[] revistas = repositorioRevistas.SelecionarRegistros();
 
@@ -133,18 +138,17 @@ namespace Trabalho_02___ClubeDaLeitura.Emprestimo
 
                 Console.WriteLine(
                    "{0, -10} | {1, -10} | {2, -20} | {3, -30} | {4, -20} ",
-                    r.id, r.titulo, r.numeroEdicao, r.ano, r.status);
+                    r.id, r.titulo, r.numeroEdicao, r.ano, r.status
+                );
             }
             Console.ReadLine();
         }
         public  void VisualizarAmigos()
         {
-            Console.Clear();
             Console.WriteLine("---------------------------");
             Console.WriteLine("     Visualizar Amigos     ");
             Console.WriteLine("---------------------------");
 
-            Console.WriteLine("Visualização de Amigos");
 
             Console.WriteLine();
 
@@ -168,6 +172,39 @@ namespace Trabalho_02___ClubeDaLeitura.Emprestimo
                 );
             }
             Console.ReadLine();
+        }
+
+        public void RegistrarDevolucao(string situacao)
+        {
+            Console.Clear();
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("  Visualizar Emprestimos   ");
+            Console.WriteLine("---------------------------");
+
+            VisualizarAmigos();
+
+            Console.WriteLine("Digite o Id do amigo para registrar a devolução");
+            int devolucao = Convert.ToInt32(Console.ReadLine());
+
+
+            EntidadeBase[] emprestimo = repositorioEmprestimo.SelecionarRegistros();
+
+            for (int i = 0; i < emprestimo.Length; i++)
+            {
+                Emprestimo e = (Emprestimo)emprestimo[i];
+
+                if (e == null)
+                    continue;
+
+                if (e.id == devolucao)
+                {
+                    e.situacao = "Disponivel";
+                    Console.WriteLine("Revista devolvida!");
+                }
+            }
+            return;
+
+
         }
     }
 }

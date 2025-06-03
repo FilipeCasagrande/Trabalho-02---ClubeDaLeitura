@@ -103,12 +103,9 @@ namespace Trabalho_02___ClubeDaLeitura.Compartilhado
             Console.Write("Digite o id do registro que deseja selecionar: ");
             int idSelecionado = Convert.ToInt32(Console.ReadLine());
            
-            
-            
-
             repositorio.ExcluirRegistro(idSelecionado);
 
-            Console.WriteLine($"\n{nomeEntidade} excluído com sucesso!");
+            //Console.WriteLine($"\n{nomeEntidade} excluído com sucesso!");
             Console.ReadLine();
         }
 

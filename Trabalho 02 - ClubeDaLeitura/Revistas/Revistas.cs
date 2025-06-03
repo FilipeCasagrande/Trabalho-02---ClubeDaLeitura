@@ -12,7 +12,7 @@ namespace Trabalho_02___ClubeDaLeitura.Revistas
 {
      public class Revistas : EntidadeBase
     {
-        public int id;
+        public int caixaId;
         public string titulo;
         public int numeroEdicao;
         public int ano;

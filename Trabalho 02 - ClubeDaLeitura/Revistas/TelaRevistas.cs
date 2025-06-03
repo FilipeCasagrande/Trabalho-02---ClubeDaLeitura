@@ -47,7 +47,7 @@ namespace Trabalho_02___ClubeDaLeitura.Revistas
             Console.WriteLine("Informe o nome do título");
             string titulo = Console.ReadLine();
 
-            Console.WriteLine("Informe a Edição e Ano de publicação ");
+            Console.WriteLine("Informe a Edição de publicação ");
             int numeroEdicao= Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Informe o Ano de publicação ");
