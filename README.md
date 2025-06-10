@@ -1,17 +1,17 @@
 ## Trabalho 02  Clube da Leitura
 
-Controle de amigos:
+Controle de Amigos:
 ![](https://imgur.com/gDwxi5O.gif)
 Controle de Caixas:
 ![](https://imgur.com/uRBTfTf.gif)
 Controle de Revistas:
 ![](https://imgur.com/bqtPWmm.gif)
-Emprestimos:
+Empréstimos:
 ![](https://imgur.com/0jRmcE0.gif)
 
 ## Introdução
-Um programa que possibilita fazer inclusão de amigos, caixas e revistas para serem emprestadas aos amigos cadastrados
-posibilitando também fazer a edição ou excluão dos mesmos.
+Programa que permite a inclusão de amigos, caixas e revistas para serem emprestadas aos amigos
+cadastrados, possibilitando também a edição ou exclusão desses registros.
 
 ## Funções
 + Adicionar, visualuzar, editar ou exluir Amigos
